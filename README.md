@@ -16,7 +16,7 @@ A dashboard widget used by healthcare providers and care coordinators to identif
 
 ### Backend (Node.js / TypeScript / Express)
 
-**`GET /patient-care-gaps`**
+**`GET /preventive-care/gaps`**
 
 Returns a paginated list of care gaps filtered by query params.
 
@@ -34,7 +34,7 @@ Response:
 {
   "data": [
     {
-      "careGap": { "id": "string", "type": "string" },
+      "careGap": { "id": "string", "type": "string", "name": "string" },
       "patient": { "id": "string", "name": "string" },
       "daysOverdue": 14
     }

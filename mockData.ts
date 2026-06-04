@@ -20,7 +20,7 @@ export interface CareGapRecord {
     id: string;
     name: string;
   };
-  daysOverdue: number;
+  due: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -82,390 +82,390 @@ export const CARE_GAP_RECORDS: CareGapRecord[] = [
   {
     careGap: { id: 'cg001', type: '1' },
     patient: { id: 'p001', name: 'Margaret Thompson' },
-    daysOverdue: 45,
+    due: '2026-04-20T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg002', type: '1' },
     patient: { id: 'p003', name: 'Linda Nguyen' },
-    daysOverdue: 120,
+    due: '2026-02-04T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg003', type: '1' },
     patient: { id: 'p005', name: 'Patricia Kim' },
-    daysOverdue: 8,
+    due: '2026-05-27T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg004', type: '1' },
     patient: { id: 'p007', name: 'Barbara Williams' },
-    daysOverdue: 210,
+    due: '2025-11-06T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg005', type: '1' },
     patient: { id: 'p009', name: 'Susan Rivera' },
-    daysOverdue: 365,
+    due: '2025-06-04T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg006', type: '1' },
     patient: { id: 'p011', name: 'Dorothy Martinez' },
-    daysOverdue: 72,
+    due: '2026-03-24T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg007', type: '1' },
     patient: { id: 'p013', name: 'Jessica Anderson' },
-    daysOverdue: 15,
+    due: '2026-05-20T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg008', type: '1' },
     patient: { id: 'p015', name: 'Sarah White' },
-    daysOverdue: 180,
+    due: '2025-12-06T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg009', type: '1' },
     patient: { id: 'p017', name: 'Karen Lewis' },
-    daysOverdue: 3,
+    due: '2026-06-01T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg010', type: '1' },
     patient: { id: 'p019', name: 'Nancy Walker' },
-    daysOverdue: 290,
+    due: '2025-08-18T00:00:00.000Z',
   },
 
   // Flu Shot gaps
   {
     careGap: { id: 'cg011', type: '2' },
     patient: { id: 'p002', name: 'James Okafor' },
-    daysOverdue: 30,
+    due: '2026-05-05T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg012', type: '2' },
     patient: { id: 'p004', name: 'Robert Castillo' },
-    daysOverdue: 60,
+    due: '2026-04-05T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg013', type: '2' },
     patient: { id: 'p006', name: 'Michael Patel' },
-    daysOverdue: 5,
+    due: '2026-05-30T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg014', type: '2' },
     patient: { id: 'p008', name: 'David Chen' },
-    daysOverdue: 145,
+    due: '2026-01-10T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg015', type: '2' },
     patient: { id: 'p010', name: 'Richard Osei' },
-    daysOverdue: 22,
+    due: '2026-05-13T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg016', type: '2' },
     patient: { id: 'p012', name: 'Joseph Robinson' },
-    daysOverdue: 88,
+    due: '2026-03-08T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg017', type: '2' },
     patient: { id: 'p014', name: 'Thomas Jackson' },
-    daysOverdue: 200,
+    due: '2025-11-16T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg018', type: '2' },
     patient: { id: 'p016', name: 'Charles Harris' },
-    daysOverdue: 11,
+    due: '2026-05-24T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg019', type: '2' },
     patient: { id: 'p018', name: 'Christopher Clark' },
-    daysOverdue: 55,
+    due: '2026-04-10T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg020', type: '2' },
     patient: { id: 'p020', name: 'Daniel Hall' },
-    daysOverdue: 320,
+    due: '2025-07-19T00:00:00.000Z',
   },
 
   // A1C Test gaps
   {
     careGap: { id: 'cg021', type: '3' },
     patient: { id: 'p001', name: 'Margaret Thompson' },
-    daysOverdue: 90,
+    due: '2026-03-06T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg022', type: '3' },
     patient: { id: 'p004', name: 'Robert Castillo' },
-    daysOverdue: 18,
+    due: '2026-05-17T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg023', type: '3' },
     patient: { id: 'p007', name: 'Barbara Williams' },
-    daysOverdue: 135,
+    due: '2026-01-20T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg024', type: '3' },
     patient: { id: 'p010', name: 'Richard Osei' },
-    daysOverdue: 7,
+    due: '2026-05-28T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg025', type: '3' },
     patient: { id: 'p013', name: 'Jessica Anderson' },
-    daysOverdue: 245,
+    due: '2025-10-02T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg026', type: '3' },
     patient: { id: 'p016', name: 'Charles Harris' },
-    daysOverdue: 40,
+    due: '2026-04-25T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg027', type: '3' },
     patient: { id: 'p019', name: 'Nancy Walker' },
-    daysOverdue: 160,
+    due: '2025-12-26T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg028', type: '3' },
     patient: { id: 'p022', name: 'Matthew Young' },
-    daysOverdue: 12,
+    due: '2026-05-23T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg029', type: '3' },
     patient: { id: 'p024', name: 'Anthony King' },
-    daysOverdue: 300,
+    due: '2025-08-08T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg030', type: '3' },
     patient: { id: 'p025', name: 'Ashley Wright' },
-    daysOverdue: 66,
+    due: '2026-03-30T00:00:00.000Z',
   },
 
   // Blood Pressure Check gaps
   {
     careGap: { id: 'cg031', type: '4' },
     patient: { id: 'p002', name: 'James Okafor' },
-    daysOverdue: 14,
+    due: '2026-05-21T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg032', type: '4' },
     patient: { id: 'p005', name: 'Patricia Kim' },
-    daysOverdue: 75,
+    due: '2026-03-21T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg033', type: '4' },
     patient: { id: 'p008', name: 'David Chen' },
-    daysOverdue: 190,
+    due: '2025-11-26T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg034', type: '4' },
     patient: { id: 'p011', name: 'Dorothy Martinez' },
-    daysOverdue: 33,
+    due: '2026-05-02T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg035', type: '4' },
     patient: { id: 'p014', name: 'Thomas Jackson' },
-    daysOverdue: 110,
+    due: '2026-02-14T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg036', type: '4' },
     patient: { id: 'p017', name: 'Karen Lewis' },
-    daysOverdue: 250,
+    due: '2025-09-27T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg037', type: '4' },
     patient: { id: 'p020', name: 'Daniel Hall' },
-    daysOverdue: 6,
+    due: '2026-05-29T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg038', type: '4' },
     patient: { id: 'p021', name: 'Betty Allen' },
-    daysOverdue: 95,
+    due: '2026-03-01T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg039', type: '4' },
     patient: { id: 'p023', name: 'Sandra Hernandez' },
-    daysOverdue: 170,
+    due: '2025-12-16T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg040', type: '4' },
     patient: { id: 'p025', name: 'Ashley Wright' },
-    daysOverdue: 28,
+    due: '2026-05-07T00:00:00.000Z',
   },
 
   // Colorectal Cancer Screening gaps
   {
     careGap: { id: 'cg041', type: '5' },
     patient: { id: 'p003', name: 'Linda Nguyen' },
-    daysOverdue: 340,
+    due: '2025-06-29T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg042', type: '5' },
     patient: { id: 'p006', name: 'Michael Patel' },
-    daysOverdue: 85,
+    due: '2026-03-11T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg043', type: '5' },
     patient: { id: 'p009', name: 'Susan Rivera' },
-    daysOverdue: 220,
+    due: '2025-10-27T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg044', type: '5' },
     patient: { id: 'p012', name: 'Joseph Robinson' },
-    daysOverdue: 42,
+    due: '2026-04-23T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg045', type: '5' },
     patient: { id: 'p015', name: 'Sarah White' },
-    daysOverdue: 155,
+    due: '2025-12-31T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg046', type: '5' },
     patient: { id: 'p018', name: 'Christopher Clark' },
-    daysOverdue: 9,
+    due: '2026-05-26T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg047', type: '5' },
     patient: { id: 'p021', name: 'Betty Allen' },
-    daysOverdue: 275,
+    due: '2025-09-02T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg048', type: '5' },
     patient: { id: 'p024', name: 'Anthony King' },
-    daysOverdue: 50,
+    due: '2026-04-15T00:00:00.000Z',
   },
 
   // Mammogram gaps
   {
     careGap: { id: 'cg049', type: '6' },
     patient: { id: 'p001', name: 'Margaret Thompson' },
-    daysOverdue: 130,
+    due: '2026-01-25T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg050', type: '6' },
     patient: { id: 'p005', name: 'Patricia Kim' },
-    daysOverdue: 20,
+    due: '2026-05-15T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg051', type: '6' },
     patient: { id: 'p007', name: 'Barbara Williams' },
-    daysOverdue: 310,
+    due: '2025-07-29T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg052', type: '6' },
     patient: { id: 'p011', name: 'Dorothy Martinez' },
-    daysOverdue: 65,
+    due: '2026-03-31T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg053', type: '6' },
     patient: { id: 'p013', name: 'Jessica Anderson' },
-    daysOverdue: 175,
+    due: '2025-12-11T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg054', type: '6' },
     patient: { id: 'p017', name: 'Karen Lewis' },
-    daysOverdue: 38,
+    due: '2026-04-27T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg055', type: '6' },
     patient: { id: 'p019', name: 'Nancy Walker' },
-    daysOverdue: 230,
+    due: '2025-10-17T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg056', type: '6' },
     patient: { id: 'p023', name: 'Sandra Hernandez' },
-    daysOverdue: 4,
+    due: '2026-05-31T00:00:00.000Z',
   },
 
   // Cholesterol Check gaps
   {
     careGap: { id: 'cg057', type: '7' },
     patient: { id: 'p002', name: 'James Okafor' },
-    daysOverdue: 100,
+    due: '2026-02-24T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg058', type: '7' },
     patient: { id: 'p004', name: 'Robert Castillo' },
-    daysOverdue: 25,
+    due: '2026-05-10T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg059', type: '7' },
     patient: { id: 'p006', name: 'Michael Patel' },
-    daysOverdue: 195,
+    due: '2025-11-21T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg060', type: '7' },
     patient: { id: 'p008', name: 'David Chen' },
-    daysOverdue: 70,
+    due: '2026-03-26T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg061', type: '7' },
     patient: { id: 'p010', name: 'Richard Osei' },
-    daysOverdue: 285,
+    due: '2025-08-23T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg062', type: '7' },
     patient: { id: 'p012', name: 'Joseph Robinson' },
-    daysOverdue: 16,
+    due: '2026-05-19T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg063', type: '7' },
     patient: { id: 'p014', name: 'Thomas Jackson' },
-    daysOverdue: 140,
+    due: '2026-01-15T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg064', type: '7' },
     patient: { id: 'p016', name: 'Charles Harris' },
-    daysOverdue: 355,
+    due: '2025-06-14T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg065', type: '7' },
     patient: { id: 'p020', name: 'Daniel Hall' },
-    daysOverdue: 52,
+    due: '2026-04-13T00:00:00.000Z',
   },
 
   // Diabetic Eye Exam gaps
   {
     careGap: { id: 'cg066', type: '8' },
     patient: { id: 'p003', name: 'Linda Nguyen' },
-    daysOverdue: 185,
+    due: '2025-12-01T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg067', type: '8' },
     patient: { id: 'p009', name: 'Susan Rivera' },
-    daysOverdue: 47,
+    due: '2026-04-18T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg068', type: '8' },
     patient: { id: 'p015', name: 'Sarah White' },
-    daysOverdue: 260,
+    due: '2025-09-17T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg069', type: '8' },
     patient: { id: 'p018', name: 'Christopher Clark' },
-    daysOverdue: 32,
+    due: '2026-05-03T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg070', type: '8' },
     patient: { id: 'p021', name: 'Betty Allen' },
-    daysOverdue: 115,
+    due: '2026-02-09T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg071', type: '8' },
     patient: { id: 'p022', name: 'Matthew Young' },
-    daysOverdue: 78,
+    due: '2026-03-18T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg072', type: '8' },
     patient: { id: 'p023', name: 'Sandra Hernandez' },
-    daysOverdue: 330,
+    due: '2025-07-09T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg073', type: '8' },
     patient: { id: 'p024', name: 'Anthony King' },
-    daysOverdue: 19,
+    due: '2026-05-16T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg074', type: '8' },
     patient: { id: 'p025', name: 'Ashley Wright' },
-    daysOverdue: 148,
+    due: '2026-01-07T00:00:00.000Z',
   },
   {
     careGap: { id: 'cg075', type: '8' },
     patient: { id: 'p022', name: 'Matthew Young' },
-    daysOverdue: 235,
+    due: '2025-10-12T00:00:00.000Z',
   },
 ];

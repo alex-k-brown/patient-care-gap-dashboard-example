@@ -1,0 +1,26 @@
+{
+  "name": "patient-care-gap-dashboard-example",
+  "version": "1.0.0",
+  "description": "Dashboard for visualizing and managing patient care gaps",
+  "homepage": "https://github.com/alex-k-brown/patient-care-gap-dashboard-example#readme",
+  "bugs": {
+    "url": "https://github.com/alex-k-brown/patient-care-gap-dashboard-example/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alex-k-brown/patient-care-gap-dashboard-example.git"
+  },
+  "license": "MIT",
+  "author": "Alex Brown <brown.alex.k@gmail.com>",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

@@ -1,40 +1,16 @@
 {
   "name": "patient-care-gap-dashboard-example",
-  "version": "1.0.0",
-  "description": "Dashboard for visualizing and managing patient care gaps",
-  "homepage": "https://github.com/alex-k-brown/patient-care-gap-dashboard-example#readme",
-  "bugs": {
-    "url": "https://github.com/alex-k-brown/patient-care-gap-dashboard-example/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alex-k-brown/patient-care-gap-dashboard-example.git"
-  },
-  "license": "MIT",
-  "author": "Alex Brown <brown.alex.k@gmail.com>",
-  "type": "module",
-  "main": "server.ts",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "engines": {
-    "node": ">=20"
+    "start": "node ./bin/www"
   },
   "dependencies": {
-    "express": "^5.2.1"
-  },
-  "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "@types/express": "^5.0.6",
-    "@types/node": "^25.9.1",
-    "eslint": "^10.4.1",
-    "globals": "^17.6.0",
-    "jiti": "^2.7.0",
-    "prettier": "^3.8.3",
-    "typescript-eslint": "^8.60.1"
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1"
   }
 }

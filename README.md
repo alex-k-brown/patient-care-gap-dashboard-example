@@ -21,6 +21,7 @@ A dashboard widget used by healthcare providers and care coordinators to identif
 Returns a paginated list of care gaps filtered by query params.
 
 Query params (all optional):
+
 - `careGapType` — filter by procedure type ID (default: all types)
 - `overdueMin` — minimum days overdue (default: 0)
 - `overdueMax` — maximum days overdue (default: 365)
@@ -28,6 +29,7 @@ Query params (all optional):
 - `pageSize` — results per page (default: 25)
 
 Response:
+
 ```json
 {
   "data": [
@@ -50,11 +52,10 @@ Response:
 Returns a list of preventive care procedure types for populating the filter dropdown.
 
 Response:
+
 ```json
 {
-  "data": [
-    { "id": "string", "name": "string" }
-  ]
+  "data": [{ "id": "string", "name": "string" }]
 }
 ```
 
@@ -65,6 +66,7 @@ Response:
 Marks a specific care gap as outreached for a patient. Timestamp recorded server-side.
 
 Request body:
+
 ```json
 { "outreached": true }
 ```
@@ -89,10 +91,12 @@ Response: `200 OK` or error
 ```
 
 **State Management:**
+
 - Use React Context for shared filter state between `<CareGapFilters>` and `<CareGapList>`
 - Use TanStack Query for data fetching, caching, and cache invalidation
 
 **UI Requirements:**
+
 - Loading state while fetching
 - Error state with retry on failure
 - Empty state when no results match filters
@@ -104,15 +108,19 @@ Response: `200 OK` or error
 ## Design Decisions & Tradeoffs
 
 ### Server-side filtering
+
 Filtering is handled on the backend to support pagination and ensure data freshness. Accepts a brief loading state on each filter change as the tradeoff.
 
 ### Separate rows per care gap (not grouped by patient)
+
 Each care gap gets its own row since this is an action-oriented widget. The procedure takes precedence over the overall patient picture. A patient filter could be added to address this.
 
 ### Pessimistic update on Mark as Outreached
+
 In a healthcare context, data integrity matters more than perceived speed. The row stays in the list until the backend confirms the update. Clear error state shown if the request fails.
 
 ### TanStack Query for caching
+
 Cache invalidated on outreach action to pull a fresh list. Auto-refresh every 5 minutes and on initial widget load.
 
 ---
@@ -134,6 +142,7 @@ If time is limited, build in this order:
 Use hardcoded mock data arrays in the backend for this exercise. No database required.
 
 Example care gap types:
+
 - `{ id: "1", name: "Annual Wellness Visit" }`
 - `{ id: "2", name: "Flu Shot" }`
 - `{ id: "3", name: "A1C Test" }`

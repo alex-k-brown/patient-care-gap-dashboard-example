@@ -61,17 +61,11 @@ Response:
 
 ---
 
-**`POST /patients/:patientId/care-gaps/:careGapId/outreach`**
+**`POST /preventive-care/gap/:careGapId/resolve`**
 
 Marks a specific care gap as outreached for a patient. Timestamp recorded server-side.
 
-Request body:
-
-```json
-{ "outreached": true }
-```
-
-Response: `200 OK` or error
+Response: `204` or error
 
 ---
 

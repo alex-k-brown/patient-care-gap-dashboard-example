@@ -66,4 +66,16 @@ router.get('/gaps', (req, res) => {
   res.json(response);
 });
 
+router.post('/gaps/:careGapId/resolve', (req, res) => {
+  const { careGapId } = req.params;
+  const index = CARE_GAP_RECORDS.findIndex(
+    (record) => record.careGap.id === careGapId,
+  );
+  if (index === -1) {
+    return res.status(404).json({ error: 'Care gap not found' });
+  }
+  CARE_GAP_RECORDS.splice(index, 1);
+  res.status(204).send();
+});
+
 export default router;

@@ -5,10 +5,14 @@ import dayjs from 'dayjs';
 const router = Router();
 
 const careTypeMap = new Map(CARE_TYPES.map((type) => [type.id, type.name]));
-const getOverdueDays = (dueDate: string) => {
+const getOverdueDays = (dueDate: string, today: dayjs.Dayjs) => {
   const due = dayjs(dueDate);
-  const today = dayjs();
   return today.diff(due, 'day');
+};
+const parseQueryNumber = (value: string | undefined) => {
+  if (value === undefined) return undefined;
+  const num = Number(value);
+  return isNaN(num) ? undefined : num;
 };
 
 router.get('/types', (_req, res) => {
@@ -16,10 +20,18 @@ router.get('/types', (_req, res) => {
 });
 
 router.get('/gaps', (req, res) => {
-  const { typeid, overduemin, overduemax, page, limit } = req.query;
+  const today = dayjs();
+  const { page, limit } = req.query;
+  const typeId = req.query.typeid as string | undefined;
+  const overdueMin = parseQueryNumber(
+    req.query.overduemin as string | undefined,
+  );
+  const overdueMax = parseQueryNumber(
+    req.query.overduemax as string | undefined,
+  );
 
-  const filteredById = typeid
-    ? CARE_GAP_RECORDS.filter((record) => record.careGap.type === typeid)
+  const filteredById = typeId
+    ? CARE_GAP_RECORDS.filter((record) => record.careGap.type === typeId)
     : CARE_GAP_RECORDS;
 
   const reqPage = Math.max(1, parseInt(page as string) || 1);
@@ -30,16 +42,15 @@ router.get('/gaps', (req, res) => {
     .map((record) => ({
       careGap: {
         ...record.careGap,
-        name: careTypeMap.get(record.careGap.type),
+        name: careTypeMap.get(record.careGap.type) || 'Unknown',
       },
       patient: record.patient,
-      daysOverdue: getOverdueDays(record.due),
+      daysOverdue: getOverdueDays(record.due, today),
     }))
     .filter(
       (record) =>
-        (overduemin === undefined ||
-          record.daysOverdue >= Number(overduemin)) &&
-        (overduemax === undefined || record.daysOverdue <= Number(overduemax)),
+        (overdueMin === undefined || record.daysOverdue >= overdueMin) &&
+        (overdueMax === undefined || record.daysOverdue <= overdueMax),
     );
 
   const paginatedGaps = gaps.slice(offset, offset + reqLimit);

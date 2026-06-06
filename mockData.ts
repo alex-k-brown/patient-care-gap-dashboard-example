@@ -1,5 +1,6 @@
 // Mock Data — Patient Care Gap Dashboard
 // Use this in your Express backend to simulate a real data source
+// Dates anchored to 2026-06-04
 
 export interface CareType {
   id: string;

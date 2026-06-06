@@ -16,7 +16,12 @@ router.get('/types', (_req, res) => {
 });
 
 router.get('/gaps', (_req, res) => {
-  const gaps = CARE_GAP_RECORDS.map((record) => [
+  const { typeid } = _req.query;
+
+  const records = typeid
+    ? CARE_GAP_RECORDS.filter((record) => record.careGap.type === typeid)
+    : CARE_GAP_RECORDS;
+  const gaps = records.map((record) => [
     {
       careGap: {
         ...record.careGap,

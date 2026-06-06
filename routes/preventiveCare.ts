@@ -16,7 +16,7 @@ router.get('/types', (_req, res) => {
 });
 
 router.get('/gaps', (_req, res) => {
-  const { typeid, overduemin, overduemax } = _req.query;
+  const { typeid, overduemin, overduemax, page, limit } = _req.query;
 
   const filteredById = typeid
     ? CARE_GAP_RECORDS.filter((record) => record.careGap.type === typeid)
@@ -30,6 +30,10 @@ router.get('/gaps', (_req, res) => {
     );
   });
 
+  const reqPage = Math.max(1, parseInt(page as string) || 1);
+  const reqLimit = Math.min(100, parseInt(limit as string) || 25);
+  const offset = (reqPage - 1) * reqLimit;
+
   const gaps = filteredByMinMax.map((record) => [
     {
       careGap: {
@@ -41,9 +45,14 @@ router.get('/gaps', (_req, res) => {
     },
   ]);
 
+  const paginatedGaps = gaps.slice(offset, offset + reqLimit);
+
   const response = {
     total: gaps.length,
-    data: gaps,
+    totalPages: Math.ceil(gaps.length / reqLimit),
+    pageSize: reqLimit,
+    page: reqPage,
+    data: paginatedGaps,
   };
 
   res.json(response);

@@ -61,7 +61,7 @@ Response:
 
 ---
 
-**`POST /preventive-care/gap/:careGapId/resolve`**
+**`POST /preventive-care/gaps/:careGapId/resolve`**
 
 Marks a specific care gap as outreached for a patient. Timestamp recorded server-side.
 

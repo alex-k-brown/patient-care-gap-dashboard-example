@@ -16,12 +16,21 @@ router.get('/types', (_req, res) => {
 });
 
 router.get('/gaps', (_req, res) => {
-  const { typeid } = _req.query;
+  const { typeid, overduemin, overduemax } = _req.query;
 
-  const records = typeid
+  const filteredById = typeid
     ? CARE_GAP_RECORDS.filter((record) => record.careGap.type === typeid)
     : CARE_GAP_RECORDS;
-  const gaps = records.map((record) => [
+
+  const filteredByMinMax = filteredById.filter((record) => {
+    const overdueDays = getOverdueDays(record.due);
+    return (
+      (overduemin === undefined || overdueDays >= Number(overduemin)) &&
+      (overduemax === undefined || overdueDays <= Number(overduemax))
+    );
+  });
+
+  const gaps = filteredByMinMax.map((record) => [
     {
       careGap: {
         ...record.careGap,
@@ -31,7 +40,13 @@ router.get('/gaps', (_req, res) => {
       daysOverdue: getOverdueDays(record.due),
     },
   ]);
-  res.json(gaps);
+
+  const response = {
+    total: gaps.length,
+    data: gaps,
+  };
+
+  res.json(response);
 });
 
 export default router;
